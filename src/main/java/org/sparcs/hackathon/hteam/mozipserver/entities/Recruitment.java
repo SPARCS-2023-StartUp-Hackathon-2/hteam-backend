@@ -14,6 +14,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.sparcs.hackathon.hteam.mozipserver.enums.InterviewType;
 import org.sparcs.hackathon.hteam.mozipserver.enums.RecruitmentState;
 
 @Setter
@@ -38,4 +39,10 @@ public class Recruitment {
     private LocalDateTime startAt;
     private LocalDateTime endAt;
     private LocalDateTime createdAt;
+    private String interviewname;
+
+    @Enumerated(EnumType.STRING)
+    private InterviewType interviewType;
+
+    private String interviewNotice;
 }
