@@ -6,6 +6,8 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -54,7 +56,11 @@ public class Applicant {
     private Map<String, Object> formContent;
 
     private LocalDateTime submittedAt;
+
+    @Enumerated(EnumType.STRING)
     private ApplicantState formState;
+
+    @Enumerated(EnumType.STRING)
     private ApplicantState interviewState;
 
     @CreatedDate
@@ -63,13 +69,21 @@ public class Applicant {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
-    public Applicant(Recruitment recruitment, String name, String email, String phoneNumber) {
+    public Applicant(
+        Recruitment recruitment,
+        String name,
+        String email,
+        String phoneNumber,
+        Map<String, Object> formContent
+    ) {
         this.recruitment = recruitment;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.formState = ApplicantState.UNDEFINED;
         this.interviewState = ApplicantState.UNDEFINED;
+        this.formContent = formContent;
         this.uuid = UUID.randomUUID().toString();
+        this.submittedAt = LocalDateTime.now();
     }
 }

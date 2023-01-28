@@ -1,5 +1,7 @@
 package org.sparcs.hackathon.hteam.mozipserver.controllers;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -35,9 +37,10 @@ public class RecruitmentController {
 
     @Authorize
     @GetMapping
-    Stream<RecruitmentListResponseDto> getAll(@CurrentUser Long userId) {
+    List<RecruitmentListResponseDto> getAll(@CurrentUser Long userId) {
         return recruitmentRepository.findAllByUserId(userId).stream()
-            .map(RecruitmentListResponseDto::new);
+            .map(RecruitmentListResponseDto::new)
+            .collect(Collectors.toList());
     }
 
     @Authorize
