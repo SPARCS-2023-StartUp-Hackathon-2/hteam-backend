@@ -1,4 +1,4 @@
-package org.sparcs.hackathon.hteam.mozipserver.dtos;
+package org.sparcs.hackathon.hteam.mozipserver.dtos.user;
 
 import lombok.Getter;
 import org.sparcs.hackathon.hteam.mozipserver.entities.User;

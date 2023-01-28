@@ -39,10 +39,17 @@ public class Recruitment {
     private LocalDateTime startAt;
     private LocalDateTime endAt;
     private LocalDateTime createdAt;
-    private String interviewname;
 
     @Enumerated(EnumType.STRING)
     private InterviewType interviewType;
 
     private String interviewNotice;
+
+    public Recruitment(User user, String name, LocalDateTime startAt, LocalDateTime endAt) {
+        this.user = user;
+        this.name = name;
+        this.startAt = startAt;
+        this.endAt = endAt;
+        this.state = RecruitmentState.PREPARING;
+    }
 }
