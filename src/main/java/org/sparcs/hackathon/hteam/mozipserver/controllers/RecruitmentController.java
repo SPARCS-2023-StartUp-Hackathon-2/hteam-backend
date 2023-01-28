@@ -98,6 +98,8 @@ public class RecruitmentController {
 
         recruitment.setInterviewType(recruitmentUpdateInterviewRequestDto.getType());
         recruitment.setInterviewNotice(recruitmentUpdateInterviewRequestDto.getNotice());
+        recruitment.setInterviewerCount(recruitmentUpdateInterviewRequestDto.getInterviewerCount());
+        recruitment.setIntervieweeCount(recruitmentUpdateInterviewRequestDto.getIntervieweeCount());
 
         recruitmentRepository.save(recruitment);
     }

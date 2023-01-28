@@ -55,6 +55,8 @@ public class Recruitment {
     private InterviewType interviewType;
 
     private String interviewNotice;
+    private Integer interviewerCount;
+    private Integer intervieweeCount;
 
     public Recruitment(User user, String name, LocalDateTime startAt, LocalDateTime endAt) {
         this.user = user;

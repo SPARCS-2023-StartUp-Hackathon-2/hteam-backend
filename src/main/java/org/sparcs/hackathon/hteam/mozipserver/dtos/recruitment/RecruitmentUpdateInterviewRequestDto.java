@@ -13,4 +13,6 @@ public class RecruitmentUpdateInterviewRequestDto {
 
     private InterviewType type;
     private String notice;
+    private Integer interviewerCount;
+    private Integer intervieweeCount;
 }
