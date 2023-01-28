@@ -1,5 +1,6 @@
 package org.sparcs.hackathon.hteam.mozipserver.entities;
 
+import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -30,4 +31,13 @@ public class Interviewer {
 
     private String name;
     private String email;
+    private String phoneNumber;
+
+    public Interviewer(Recruitment recruitment, String name, String email, String phoneNumber) {
+        this.recruitment = recruitment;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.uuid = UUID.randomUUID().toString();
+    }
 }
