@@ -22,8 +22,24 @@ public class User {
     private String username;
     private String password;
     private String groupName;
-    private String groupType;
+//    private String groupType;
     private String smtpHost;
     private String smtpEmail;
     private String smtpPassword;
+
+    public User(
+        String username,
+        String password,
+        String groupName,
+        String smtpHost,
+        String smtpEmail,
+        String smtpPassword
+    ) {
+        this.username = username;
+        this.password = password;
+        this.groupName = groupName;
+        this.smtpHost = smtpHost;
+        this.smtpEmail = smtpEmail;
+        this.smtpPassword = smtpPassword;
+    }
 }
