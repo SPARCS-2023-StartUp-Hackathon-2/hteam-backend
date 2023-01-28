@@ -44,4 +44,8 @@ public class Form {
 
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
+    public Form(Recruitment recruitment) {
+        this.recruitment = recruitment;
+    }
 }

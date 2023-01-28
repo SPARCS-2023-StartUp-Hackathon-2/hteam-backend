@@ -58,4 +58,8 @@ public class Recruitment {
         this.endAt = endAt;
         this.state = RecruitmentState.PREPARING;
     }
+
+    public Recruitment(Long id) {
+        this.id = id;
+    }
 }
