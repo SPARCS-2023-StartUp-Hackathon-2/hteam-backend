@@ -10,6 +10,7 @@ import org.sparcs.hackathon.hteam.mozipserver.enums.RecruitmentState;
 public class RecruitmentResponseDto {
 
     private Long id;
+    private String uuid;
     private String name;
     private RecruitmentState state;
     private LocalDateTime startAt;
@@ -20,6 +21,7 @@ public class RecruitmentResponseDto {
 
     public RecruitmentResponseDto(Recruitment recruitment) {
         this.id = recruitment.getId();
+        this.uuid = recruitment.getUuid();
         this.name = recruitment.getName();
         this.state = recruitment.getState();
         this.startAt = recruitment.getStartAt();

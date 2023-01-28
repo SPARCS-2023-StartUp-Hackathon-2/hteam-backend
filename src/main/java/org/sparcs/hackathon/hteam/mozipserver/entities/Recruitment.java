@@ -1,6 +1,8 @@
 package org.sparcs.hackathon.hteam.mozipserver.entities;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.EnumType;
@@ -35,6 +37,9 @@ public class Recruitment {
     @JoinColumn
     private User user;
 
+    @Column(unique = true)
+    private String uuid;
+
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -57,6 +62,7 @@ public class Recruitment {
         this.startAt = startAt;
         this.endAt = endAt;
         this.state = RecruitmentState.PREPARING;
+        this.uuid = UUID.randomUUID().toString();
     }
 
     public Recruitment(Long id) {
