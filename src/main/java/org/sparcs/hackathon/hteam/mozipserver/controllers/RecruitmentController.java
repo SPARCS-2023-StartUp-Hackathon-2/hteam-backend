@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.sparcs.hackathon.hteam.mozipserver.config.auth.Authorize;
 import org.sparcs.hackathon.hteam.mozipserver.config.auth.CurrentUser;
+import org.sparcs.hackathon.hteam.mozipserver.dtos.recruitment.RecruitmentResponseDto;
 import org.sparcs.hackathon.hteam.mozipserver.dtos.recruitment.RecruitmentUpdateInterviewRequestDto;
 import org.sparcs.hackathon.hteam.mozipserver.dtos.recruitment.RecruitmentUpdateStateRequestDto;
 import org.sparcs.hackathon.hteam.mozipserver.dtos.recruitment.RecruitmentCreateRequestDto;
@@ -41,9 +42,10 @@ public class RecruitmentController {
 
     @Authorize
     @GetMapping("{id}")
-    Recruitment getById(@PathVariable Long id) {
-        return recruitmentRepository.findById(id)
+    RecruitmentResponseDto getById(@PathVariable Long id) {
+        Recruitment recruitment = recruitmentRepository.findById(id)
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return new RecruitmentResponseDto(recruitment);
     }
 
     @Authorize

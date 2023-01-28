@@ -2,6 +2,7 @@ package org.sparcs.hackathon.hteam.mozipserver.entities;
 
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
@@ -16,7 +17,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.sparcs.hackathon.hteam.mozipserver.enums.InterviewType;
 import org.sparcs.hackathon.hteam.mozipserver.enums.RecruitmentState;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+@EntityListeners(AuditingEntityListener.class)
 @Setter
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -38,6 +42,8 @@ public class Recruitment {
 
     private LocalDateTime startAt;
     private LocalDateTime endAt;
+
+    @CreatedDate
     private LocalDateTime createdAt;
 
     @Enumerated(EnumType.STRING)
