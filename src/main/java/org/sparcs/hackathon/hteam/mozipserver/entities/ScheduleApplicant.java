@@ -29,4 +29,9 @@ public class ScheduleApplicant {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private Applicant applicant;
+
+    public ScheduleApplicant(Schedule schedule, Applicant applicant) {
+        this.schedule = schedule;
+        this.applicant = applicant;
+    }
 }

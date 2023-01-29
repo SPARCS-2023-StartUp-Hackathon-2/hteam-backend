@@ -29,4 +29,9 @@ public class ScheduleInterviewer {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private Interviewer interviewer;
+
+    public ScheduleInterviewer(Schedule schedule, Interviewer interviewer) {
+        this.schedule = schedule;
+        this.interviewer = interviewer;
+    }
 }
